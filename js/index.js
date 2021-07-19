@@ -4,14 +4,12 @@ $.get(url).done(function(result) {
     var ret = $('item', result);
     console.log(ret);
 
-    var item1 = ret[0];
-    $("#first").text( $('title', item1).text() )
-
-    var item2 = ret[1];
-    $("#second").text( $('title', item2).text() )
-
-    var item3 = ret[2];
-    $("#third").text( $('title', item3).text() )
+    for( var i = 0; i < 3 ; ++i ) {
+        var item = ret[i];
+        var $card = $("#col" + ( i + 1 ));
+        $card.find( ".card-img-top" ).attr("src" , $('enclosure', item).attr("url") )
+        $card.find( ".card-title" ).text( $('title', item).text() )
+    }
 
 }).fail(function(result) {
     console.log(result);
