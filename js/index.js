@@ -1,4 +1,4 @@
-var url = "https://www.gizmodo.jp/index.xml";
+var url = "index.xml";
 
 $.get(url).done(function(result) {
     var ret = $('item', result);
